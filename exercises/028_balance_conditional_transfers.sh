@@ -25,10 +25,10 @@ tb "create_transfers id=28000 debit_account_id=$OPERATOR_ACCOUNT credit_account_
 # The first transfer will only succeed if the SOURCE_ACCOUNT has a balance that exceeds the THRESHOLD_AMOUNT.
 # The second transfers the THRESHOLD_AMOUNT back from the CONTROL_ACCOUNT to the SOURCE_ACCOUNT.
 # Finally, the third makes the actual transfer to the DESTINATION_ACCOUNT.
-THRESHOLD_AMOUNT=200
+THRESHOLD_AMOUNT=100
 TRANSFER_AMOUNT=50
 tb "create_transfers id=28001 debit_account_id=$SOURCE_ACCOUNT credit_account_id=$CONTROL_ACCOUNT amount=$THRESHOLD_AMOUNT ledger=280 code=10 flags=linked,
-                     id=28002 debit_account_id=$CONTROL_ACCOUNT credit_account_id=$SOURCE_ACCOUNT amount=$THRESHOLD_AMOUNT ledger=280 code=10 flags=linked, 
+                     id=28002 debit_account_id=$CONTROL_ACCOUNT credit_account_id=$SOURCE_ACCOUNT amount=$THRESHOLD_AMOUNT ledger=280 code=10 flags=linked,
                      id=28003 debit_account_id=$SOURCE_ACCOUNT credit_account_id=$DESTINATION_ACCOUNT amount=$TRANSFER_AMOUNT ledger=280 code=10;"
 
 # Uh oh -- this fails because the SOURCE_ACCOUNT's balance doesn't meet the threshold.

@@ -30,7 +30,7 @@ tb "create_transfers id=27000 debit_account_id=2700 credit_account_id=2701 amoun
 
 # Can you zero out the balance of the other account?
 # (Remember, we don't want a `balancing_debit` in this case...)
-tb "create_transfers id=27003 debit_account_id=2700 credit_account_id=2702 amount=??? ledger=270 code=10 flags=???;"
+tb "create_transfers id=27003 debit_account_id=2700 credit_account_id=2702 amount=200 ledger=270 code=10 flags=balancing_credit;"
 
 # Let's check that both accounts have a net balance of 0:
 account_one=$(tb "lookup_accounts id=2701;")

@@ -26,7 +26,7 @@ tb "create_transfers id=12000 debit_account_id=$BANK credit_account_id=$CUSTOMER
 
 # Now, the customer wants to withdraw $20 from the bank.
 # Which account should be debited and which should be credited?
-tb "create_transfers id=12001 debit_account_id=${???} credit_account_id=${???} amount=20 ledger=120 code=10;"
+tb "create_transfers id=12001 debit_account_id=$CUSTOMER credit_account_id=$BANK amount=20 ledger=120 code=10;"
 
 # For developers who are new to accounting, debits and credits can be a bit confusing.
 # You can read more debits and credits in our primer on financial accounting:

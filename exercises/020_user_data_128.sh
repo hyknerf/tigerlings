@@ -23,10 +23,10 @@ tb "create_accounts id=2000 code=10 ledger=200 user_data_128=${USER_1},
 
 # Can you use this payment ID to connect the two transfers?
 PAYMENT_1=9000000001
-tb "create_transfers id=20000 debit_account_id=2000 credit_account_id=2001 amount=100 ledger=200 code=10,
-                     id=20001 debit_account_id=2002 credit_account_id=2003 amount=100 ledger=201 code=10;"
+tb "create_transfers id=20000 debit_account_id=2000 credit_account_id=2001 amount=100 ledger=200 code=10 user_data_128=${PAYMENT_1},
+                     id=20001 debit_account_id=2002 credit_account_id=2003 amount=100 ledger=201 code=10 user_data_128=${PAYMENT_1};"
 
-# (Note that if you run this script a second time, you'll need to increment the transfer `id` to avoid 
+# (Note that if you run this script a second time, you'll need to increment the transfer `id` to avoid
 # a conflict with previously created transfers.)
 
 # Note that it isn't currently possible to look up accounts or transfers by `user_data_128`.
